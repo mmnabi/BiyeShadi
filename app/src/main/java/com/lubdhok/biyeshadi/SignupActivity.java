@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity {
         password = etPassword.getText().toString();
         confirmPassword = etConfirmPassword.getText().toString();
 
-        // check if any of the fields are vaccant
+        // check if any of the fields are empty
         if (username.equals("") || password.equals("") || confirmPassword.equals("")) {
             Toast.makeText(getApplicationContext(), "Empty field exists", Toast.LENGTH_LONG).show();
             return;
@@ -45,7 +45,7 @@ public class SignupActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Password does not match", Toast.LENGTH_LONG).show();
             return;
         } else {
-            // Save the Data in Database
+            // Save the Data in User
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
