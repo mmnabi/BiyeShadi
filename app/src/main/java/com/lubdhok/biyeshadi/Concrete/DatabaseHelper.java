@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             + COLUMN_USER_MOBILE + " TEXT,"
             + COLUMN_USER_EMAIL + " TEXT,"
             + COLUMN_USER_AGE + " INTEGER,"
-            + COLUMN_USER_GENDER + " CHARACTER(1),"
+            + COLUMN_USER_GENDER + " CHARACTER(1)"
             + ")";
 
     // drop table sql query

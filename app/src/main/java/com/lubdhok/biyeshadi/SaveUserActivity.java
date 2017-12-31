@@ -1,10 +1,12 @@
 package com.lubdhok.biyeshadi;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.lubdhok.biyeshadi.Concrete.DatabaseHelper;
 import com.lubdhok.biyeshadi.Domain.User;
 
 public class SaveUserActivity extends AppCompatActivity {
@@ -14,15 +16,22 @@ public class SaveUserActivity extends AppCompatActivity {
 
     private User user;
 
+    private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save_user);
 
         initViews();
+        initObjects();
+    }
+
+    private void initObjects() {
         // getting user from intent
         user = (User) getIntent().getSerializableExtra("user");
         setValuesToView();
+        databaseHelper = new DatabaseHelper(SaveUserActivity.this);
     }
 
     private void initViews() {
@@ -51,6 +60,8 @@ public class SaveUserActivity extends AppCompatActivity {
     }
 
     public void btnFinishListener(View view) {
-
+        databaseHelper.addUser(user);
+        Intent intent =new Intent(getApplicationContext(),LoginActivity.class);
+        startActivity(intent);
     }
 }
